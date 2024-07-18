@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Int32>
+@{
+    int nn =0;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><i>#</i>  </th>
+                <th><b>Value</b>  </th
+            </tr>
+        </thead>
+
+        @foreach (var itm in Model)
+        {
+            nn = nn + 1;
+            
+            <tr>
+                <td><i>@nn</i></td>
+                <td> @itm</td>
+            </tr>
+        }
+                
+        <tr>
+            <td> <b> <i>Total</i> </b> </td>
+            @{
+             if (Model != null){
+            <td>
+            @Model.Sum();
+             </td>
+            }
+            }
+        </tr>
+        
+    </table>
+</body>
+</html>

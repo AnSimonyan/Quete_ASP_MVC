@@ -1,0 +1,65 @@
+﻿@model List<Quete_ASP_MVC.Models.Article>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Items";
+}
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <a href="@Url.Action("Add", "Article")" class="btn btn-success">Add</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <b>ID</b>
+            </div>
+            <div class="col-sm">
+                <b>Title</b>
+            </div>
+            <div class="col-sm">
+                <b>Content</b>
+            </div>
+            <div class="col-sm">
+                <b>Edit</b>
+            </div>
+            <div class="col-sm">
+                <b>Delete</b>
+            </div>
+
+        </div>
+
+        @foreach (var a in Model)
+        {
+            <div class="row">
+
+                <div class="col-sm">
+                    @a.Id
+                    <br></br>
+                </div>
+                <div class="col-sm">
+                    @a.Title
+                </div>
+                <div class="col-sm">
+                    @a.Content
+                </div>
+                <div class="col-sm">
+                    <a href="@Url.Action("EditArticles", "Article",new {idArticle=a.Id})" class="btn btn-dark">Edit</a>
+                </div>
+                <div class="col-sm">
+                    
+                    <button class="btn btn-light" onclick="deleteResource('/Article/Delete', @a.Id)">Delete</button>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+
+
+
